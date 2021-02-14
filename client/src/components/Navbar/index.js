@@ -12,7 +12,7 @@ export default function NavBar() {
 
     return (
         <nav className={'navbar navbar-expand-lg navbar-light bg-light'}
-        style={{backgroundImage: 'linear-gradient(to left, white , #484c55)'}}
+        style={navBox}
         >
             <Link to='/' className={'navbar-brand'}><span style={navText}>Revature Data</span><br></br> <span style={{color: '#f26925'}}>Covid-19 Dashboard </span> </Link>
             <Button onClick={toggleNav} className={'navbar-toggler'} type="button" data-toggle="collapse" data-target="#target-collapse" >
@@ -32,7 +32,12 @@ export default function NavBar() {
         </nav>
     )
 }
-const navText = {
+const navBox = {
+    boxShadow: '0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)',
+    backgroundImage: 'linear-gradient(to left, white , #484c55)'
+},
+
+navText = {
     fontWeight: "bold", 
     fontStyle: "italic",
     color: "white"
