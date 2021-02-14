@@ -1,3 +1,7 @@
+/* Import Bootstrap CSS */
+@import url('https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sandstone/bootstrap.min.css');
+
+/* General application wide css.  Most styling is done inline ,at the component level. */
 .App {
   text-align: center;
 }
