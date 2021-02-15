@@ -21,7 +21,7 @@ This dashboard showcases some of the results produced by from Revature data batc
     <li>Rolling count of Most Used Twitter Hashtags</li>
 </ul>
 
-<em><p><b>Note:</b>For more information on this project as a whole, please check out the <a href='https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1' target="_blank"><b>project repository</b></a>.</p></em>
+<em><p><b>Note:</b> For more information on this project as a whole, please check out the <a href='https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1' target="_blank"><b>project repository</b></a>.</p></em>
 ___
 
 ## Technologies
@@ -42,8 +42,8 @@ ___
 ## Links:
 [Deployed Website](https://covid-data-dashbrd.herokuapp.com/)
 
-[Github Repo](https://github.com/drthisguy/covid-dashboard)
-[Main Project Repo](https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1)
+[Github Repo](https://github.com/drthisguy/covid-dashboard)           
+[Main Project Repo](https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1)         
 
 ___
 
@@ -52,9 +52,9 @@ ___
 ___
 
 ## Sources
-https://reactjs.org/docs
-https://nodejs.org/en/docs
-https://expressjs.com/en/4x/api.html
+https://reactjs.org/docs            
+https://nodejs.org/en/docs            
+https://expressjs.com/en/4x/api.html            
 
 
 ## Issues & Contact
