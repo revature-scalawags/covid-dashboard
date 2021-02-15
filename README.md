@@ -21,7 +21,7 @@ This dashboard showcases some of the results produced by from Revature data batc
     <li>Rolling count of Most Used Twitter Hashtags</li>
 </ul>
 
-<em><p><b>Note:</b> For more information on this project as a whole, please check out the <a href='https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1' target="_blank"><b>project repository</b></a>.</p></em>
+<em><p><b>Note:</b> For more information on this project as a whole, please see the <a href='https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1' target="_blank"><b>project repository</b></a>.</p></em>
 ___
 
 ## Technologies
