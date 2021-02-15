@@ -48,3 +48,4 @@ router.get('/coordinates/:city', async ({ params: { city } }, res) => {
 	}
 });
 
+module.exports = router;
