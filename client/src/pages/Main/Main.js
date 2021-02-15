@@ -9,8 +9,6 @@ export default function Main() {
     [ tweetsTrending, setTweetsTrending ] = useState('Rolling count of Most Used Twitter Hashtags'),
     [ toneGauge, setToneGauge ] = useState('Gauge depicting tone of tweets since 12/11/2020')
 
-
-
     return (
         <Container>
             <Row>

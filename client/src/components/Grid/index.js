@@ -18,8 +18,5 @@ export const Collapse = ({ navState, children, id }) => {
      return <div className={classes} id={id}>{children}</div>
 }
 
-export const Wrapper = ({ children }) => <Container > <Row >{children}</Row></Container>
-
 export const Button = props => <button {...props} >{props.children}</button>
 
-export const SearchField = props => <input className="form-control form-rounded" {...props} />
