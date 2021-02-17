@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from '../../components/Grid';
-import DataList from '../../components/DataList'; 
-import API from '../../utils/API';
-
+import React, { useState, useEffect } from 'react'
+import { Container, Row, Col } from '../../components/Grid'
+import DataList from '../../components/DataList'
+import API from '../../utils/API'
+import { Loading } from '../../components/Loading/index'
 
 export default function Main() {
 
@@ -24,18 +24,24 @@ export default function Main() {
         <Container>
             <Row>
                 <Col size={'md-8'} classes={'offset-md-2'}>  
-                {wordCount1211to1225 === null ? <div/> : 
+                {wordCount1211to1225 === null ? <Loading /> : 
                     <DataList 
-                        data={wordCount1211to1225}
                         header={infectionRates} 
+                        data={wordCount1211to1225}
                     />
                 }
+                {wordCount1211to1225 === null ? <Loading /> : 
                     <DataList 
                         header={tweetsTrending} 
+                        data={wordCount1211to1225}
                     />
+                }
+                {wordCount1211to1225 === null ? <Loading /> : 
                     <DataList 
                         header={toneGauge} 
+                        data={wordCount1211to1225}
                     />
+                }
                 </Col>
            </Row>
         </Container>

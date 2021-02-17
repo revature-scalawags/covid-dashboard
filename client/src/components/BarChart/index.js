@@ -30,14 +30,15 @@ export default function BarChart({ data }) {
 }
 
 const getChartConfig = (data) => {
+    console.log(data)
    return ( {
     type: "bar",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: data.map(elem => Object.values(elem)[0]),
       datasets: [
         {
           label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
+          data: data.map(elem => Object.values(elem)[1]),
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             "rgba(54, 162, 235, 0.2)",
