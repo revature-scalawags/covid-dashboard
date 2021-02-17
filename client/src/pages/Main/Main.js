@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from '../../components/Grid'
-import DataList from '../../components/DataList'
+import { BarContainer, PieContainer } from '../../components/Containers'
 import API from '../../utils/API'
 import { Loading } from '../../components/Loading/index'
 
@@ -26,21 +26,25 @@ export default function Main() {
             <Row>
                 <Col size={'md-8'} classes={'offset-md-2'}>  
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <DataList 
+                    <BarContainer 
                         label={wordsLabel1211to1225} 
                         data={wordCount1211to1225}
                         title={wordCountTitle}
                     />
                 }
+                <Row>
+                    <Col>
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <DataList 
+                    <BarContainer 
                         label={wordsLabel1211to1225} 
                         data={wordCount1211to1225}
                         title={wordCountTitle}
                     />
                 }
+                    </Col>
+                </Row>
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <DataList 
+                    <BarContainer 
                         label={wordsLabel1211to1225} 
                         data={wordCount1211to1225}
                         title={wordCountTitle}
