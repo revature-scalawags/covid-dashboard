@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 
-export default function BarChart({ data }) {
+export default function BarChart({ data, title }) {
     console.log(data)
 
   const  chartContainer = useRef(null),
@@ -10,7 +10,7 @@ export default function BarChart({ data }) {
    //Initialize chart
    useEffect(() => {
     if (chartContainer && chartContainer.current) {
-      const newChartInstance = new Chartjs(chartContainer.current, getChartConfig(data))
+      const newChartInstance = new Chartjs(chartContainer.current, getChartConfig(data, title))
       setChartInstance(newChartInstance)
     }
   }, [chartContainer])
@@ -29,15 +29,14 @@ export default function BarChart({ data }) {
   );
 }
 
-const getChartConfig = (data) => {
-    console.log(data)
+const getChartConfig = (data, title) => {
    return ( {
     type: "bar",
     data: {
       labels: data.map(elem => Object.values(elem)[0]),
       datasets: [
         {
-          label: "# of Votes",
+          label: title,
           data: data.map(elem => Object.values(elem)[1]),
           backgroundColor: [
             "rgba(255, 99, 132, 0.2)",
@@ -45,7 +44,11 @@ const getChartConfig = (data) => {
             "rgba(255, 206, 86, 0.2)",
             "rgba(75, 192, 192, 0.2)",
             "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)"
+            "rgba(255, 159, 64, 0.2)",
+            "rgba(163, 152, 171, 0.2)",
+            "rgba(8, 255, 251, 0.2)",
+            "rgba(28, 28, 26, 0.2)",
+            "rgba(255, 253, 128, 0.2)"
           ],
           borderColor: [
             "rgba(255, 99, 132, 1)",
@@ -53,7 +56,11 @@ const getChartConfig = (data) => {
             "rgba(255, 206, 86, 1)",
             "rgba(75, 192, 192, 1)",
             "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)"
+            "rgba(255, 159, 64, 1)",
+            "rgba(163, 152, 171, 1)",
+            "rgba(8, 255, 251, 1)",
+            "rgba(28, 28, 26, 1)",
+            "rgba(255, 253, 128, 1)"
           ],
           borderWidth: 1
         }
