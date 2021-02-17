@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { Container, Row, Col } from '../../components/Grid'
 import PieChart from '../../components/PieChart'
 import BarChart from '../../components/BarChart'
+import LineChart from '../../components/LineChart'
 import API from '../../utils/API'
 import { Loading } from '../../components/Loading/index'
 
@@ -34,25 +35,14 @@ export default function Main() {
                     />
                 }
                 {wordCount1211to1225 === null ? <Loading /> : 
-                //    <Row>
-                    // <Col size='md-6'>
-                        <PieChart 
-                            label={wordsLabel1211to1225} 
-                            data={wordCount1211to1225}
-                            title={wordCountTitle}
-                        />
-                    // </Col>
-                    // <Col size='md-6'>
-                    //     <PieContainer 
-                    //         label={wordsLabel1211to1225} 
-                    //         data={wordCount1211to1225}
-                    //         title={wordCountTitle}
-                    //     />
-                    // </Col>
-                // </Row>
+                    <PieChart 
+                        label={wordsLabel1211to1225} 
+                        data={wordCount1211to1225}
+                        title={wordCountTitle}
+                    />
                 }
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <BarChart 
+                    <LineChart 
                         label={wordsLabel1211to1225} 
                         data={wordCount1211to1225}
                         title={wordCountTitle}
