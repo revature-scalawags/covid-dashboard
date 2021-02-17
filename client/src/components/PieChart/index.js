@@ -14,12 +14,6 @@ export default function BarChart({ data, title, label }) {
     }
   }, [chartContainer])
 
-  //not sure if i'll be using this. 
-  const updateDataset = (datasetIndex, newData) => {
-    chartInstance.data.datasets[datasetIndex].data = newData;
-    chartInstance.update();
-  };
-
 
   return (
     <div>
