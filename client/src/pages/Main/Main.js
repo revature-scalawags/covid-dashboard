@@ -132,7 +132,6 @@ export default function Main() {
            </Row>
             <Row>
                 <Col  ol size={'md-8'} classes={'offset-md-2'}>  
-                <em><h5 style={{textAlign: "center"}}>Twitter Data:</h5></em>
                 {TotalHashtagCount === null ? <Loading /> : 
                     <PieChart 
                         label={totalHashtagLabel} 
