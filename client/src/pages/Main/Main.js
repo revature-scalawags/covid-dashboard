@@ -17,7 +17,7 @@ export default function Main() {
     [ totalWordLabel ] = useState("Word Count:  Running Total"),
     [ totalHashtagLabel ] = useState("Hashtag Count:  Running Total"),
     [ thirdWordLabel ] = useState("Word Count:  2/03/21 - 2/14/21"),
-    [ thirdHastagLabel ] = useState("Hashtag Count:  2/03/21 - 2/14/21"),
+    [ thirdHashtagLabel ] = useState("Hashtag Count:  2/03/21 - 2/14/21"),
     [ firstHashLabel ] = useState("Hashtag Count:  12/11/20 - 12/25/20"),
     [ totalWordCount, setTotalWordCount ] = useState(null),
     [ firstWordCount, setFirstWordCount ] = useState(null),
@@ -98,69 +98,99 @@ export default function Main() {
     return (
         <Container>
             <Row>
-                <Col size={'md-8'} classes={'offset-md-2'}>  
-                <em><h5 style={{textAlign: "center"}}>Twitter Data:</h5></em>
-                {totalWordCount === null ? <Loading /> : 
-                    <PieChart 
-                        label={totalWordLabel} 
-                        data={totalWordCount}
-                        title={wordTitle}
-                    />
-                }
-                {firstWordCount === null ? <Loading /> : 
-                    <BarChart 
-                        label={firstWordLabel} 
-                        data={firstWordCount}
-                        title={wordTitle}
-                    />
-                }
-                {secondWordCount === null ? <Loading /> : 
-                    <BarChart 
-                        label={secondWordLabel} 
-                        data={secondWordCount}
-                        title={wordTitle}
-                    />
-                }
-                {thirdWordCount === null ? <Loading /> : 
-                    <BarChart 
-                        label={thirdWordLabel} 
-                        data={thirdWordCount}
-                        title={wordTitle}
-                    />
-                }
-                </Col>
-           </Row>
-            <Row>
-                <Col  ol size={'md-8'} classes={'offset-md-2'}>  
-                {TotalHashtagCount === null ? <Loading /> : 
-                    <PieChart 
-                        label={totalHashtagLabel} 
-                        data={TotalHashtagCount}
-                        title={hashTitle}
-                    />
-                }
-                {firstHashtagCount === null ? <Loading /> : 
-                    <BarChart 
-                        label={firstHashLabel} 
-                        data={firstHashtagCount}
-                        title={hashTitle}
-                    />
-                }
-                {secondHashtagCount === null ? <Loading /> : 
-                    <BarChart 
-                        label={secondHashtagLabel} 
-                        data={secondHashtagCount}
-                        title={hashTitle}
-                    />
-                }
-                {thirdHashtagCount === null ? <Loading /> : 
-                    <BarChart 
-                        label={thirdHastagLabel} 
-                        data={thirdHashtagCount}
-                        title={hashTitle}
-                    />
-                }
-                </Col>
+                <Col size={'md-12'}> 
+                <em><h2 style={{textAlign: "center"}}>Twitter Data:</h2></em>
+                <Row> 
+                    <Col size={'md-6'}>
+                        {totalWordCount === null ? <Loading /> : 
+                            <PieChart 
+                                label={totalWordLabel} 
+                                data={totalWordCount}
+                                title={wordTitle}
+                            />
+                        }
+                    </Col>
+                    <Col size={'md-6'}>
+                        {TotalHashtagCount === null ? <Loading /> : 
+                            <PieChart 
+                                label={totalHashtagLabel} 
+                                data={TotalHashtagCount}
+                                title={hashTitle}
+                            />
+                        }
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  ol size={'md-8'} classes={'offset-md-2'}>  
+                        {thirdWordCount === null ? <Loading /> : 
+                            <BarChart 
+                                label={thirdWordLabel} 
+                                data={thirdWordCount}
+                                title={wordTitle}
+                            />
+                        }
+                    </Col> 
+                </Row>
+                <Row>
+                    <Col size={'md-12'}>
+                        <Row>
+                            <Col size={'md-6'}>
+                            {firstWordCount === null ? <Loading /> : 
+                                <BarChart 
+                                    label={firstWordLabel} 
+                                    data={firstWordCount}
+                                    title={wordTitle}
+                                />
+                            }
+                            </Col>
+                            <Col size={'md-6'}>
+                                {secondWordCount === null ? <Loading /> : 
+                                    <BarChart 
+                                        label={secondWordLabel} 
+                                        data={secondWordCount}
+                                        title={wordTitle}
+                                    />
+                                }
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  ol size={'md-8'} classes={'offset-md-2'}>  
+                        {thirdHashtagCount === null ? <Loading /> : 
+                            <BarChart 
+                                label={thirdHashtagLabel} 
+                                data={thirdHashtagCount}
+                                title={hashTitle}
+                            />
+                        }
+                    </Col> 
+                </Row>
+                <Row>
+                    <Col size={'md-12'}>
+                        <Row>
+                            <Col size={'md-6'}>
+                            {firstHashtagCount === null ? <Loading /> : 
+                                <BarChart 
+                                    label={firstHashLabel} 
+                                    data={firstHashtagCount}
+                                    title={hashTitle}
+                                />
+                            }
+                            </Col>
+                            <Col size={'md-6'}>
+                                {secondHashtagCount === null ? <Loading /> : 
+                                    <BarChart 
+                                        label={secondHashtagLabel} 
+                                        data={secondHashtagCount}
+                                        title={hashTitle}
+                                    />
+                                }
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Col>
            </Row>
         </Container>
     )
