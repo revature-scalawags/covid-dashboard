@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 
-export default function BarChart({ data, title, label }) {
+export default function LineChart({ data, title, label }) {
 
   const  chartContainer = useRef(null),
    [chartInstance, setChartInstance] = useState(null)
@@ -18,25 +18,27 @@ export default function BarChart({ data, title, label }) {
   return (
     <div>
         <div className="card box-shadow m-5">
-			<div className="card-body text-center">
-			<canvas ref={chartContainer} />
-				<p className="card-text">{label}</p>
-			</div>
-		</div>
+            <div className="card-body text-center">
+                <canvas ref={chartContainer} />
+                <p className="card-text">{label}</p>
+            </div>
+        </div>
     </div>
-  )
+    
+  );
 }
 
 const getChartConfig = (data, title) => {
    return ( {
-    type: "pie",
+    type: "line",
     data: {
       labels: data.map(elem => Object.values(elem)[0]),
       datasets: [
         {
           label: title,
           data: data.map(elem => Object.values(elem)[1]),
-          backgroundColor: [
+          backgroundColor: 'rgba(235, 52, 52, 0.2)',
+          pointBackgroundColor: [
             "rgba(255, 99, 132, 0.2)",
             "rgba(54, 162, 235, 0.2)",
             "rgba(255, 206, 86, 0.2)",
@@ -68,7 +70,7 @@ const getChartConfig = (data, title) => {
             "rgba(28, 28, 26, 0.2)",
             "rgba(255, 253, 128, 0.2)"
           ],
-          borderColor: [
+          pointBorderColor: [
             "rgba(255, 99, 132, 1)",
             "rgba(54, 162, 235, 1)",
             "rgba(255, 206, 86, 1)",
@@ -110,18 +112,15 @@ const getChartConfig = (data, title) => {
           {
             ticks: {
               beginAtZero: true
-            }   
+            }
           }
         ]
       },
       animation: {
-          animateScale: true,
-          duration: 1700,
-          easing: 'easeOutSine'
-        },
-        legend: {
-            display: false
-         }
+        animateScale: true,
+        duration: 2000,
+        easing: 'easeOutSine'
+      }
     }
   })
 }
