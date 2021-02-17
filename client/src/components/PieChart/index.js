@@ -118,7 +118,10 @@ const getChartConfig = (data, title) => {
           animateScale: true,
           duration: 1700,
           easing: 'easeOutSine'
-        }
+        },
+        legend: {
+            display: false
+         }
     }
   })
 }
