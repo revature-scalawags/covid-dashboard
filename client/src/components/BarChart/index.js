@@ -80,6 +80,11 @@ const getChartConfig = (data, title) => {
             }
           }
         ]
+      },
+      animation: {
+        animateScale: true,
+        duration: 2000,
+        easing: 'easeOutSine'
       }
     }
   })
