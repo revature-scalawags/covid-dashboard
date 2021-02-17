@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Container, Row, Col } from '../../components/Grid'
-import { BarContainer, PieContainer } from '../../components/Containers'
+import PieChart from '../../components/PieChart'
+import BarChart from '../../components/BarChart'
 import API from '../../utils/API'
 import { Loading } from '../../components/Loading/index'
 
@@ -26,25 +27,32 @@ export default function Main() {
             <Row>
                 <Col size={'md-8'} classes={'offset-md-2'}>  
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <BarContainer 
+                    <BarChart 
                         label={wordsLabel1211to1225} 
                         data={wordCount1211to1225}
                         title={wordCountTitle}
                     />
                 }
-                <Row>
-                    <Col>
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <BarContainer 
-                        label={wordsLabel1211to1225} 
-                        data={wordCount1211to1225}
-                        title={wordCountTitle}
-                    />
+                //    <Row>
+                    // <Col size='md-6'>
+                        <PieChart 
+                            label={wordsLabel1211to1225} 
+                            data={wordCount1211to1225}
+                            title={wordCountTitle}
+                        />
+                    // </Col>
+                    // <Col size='md-6'>
+                    //     <PieContainer 
+                    //         label={wordsLabel1211to1225} 
+                    //         data={wordCount1211to1225}
+                    //         title={wordCountTitle}
+                    //     />
+                    // </Col>
+                // </Row>
                 }
-                    </Col>
-                </Row>
                 {wordCount1211to1225 === null ? <Loading /> : 
-                    <BarContainer 
+                    <BarChart 
                         label={wordsLabel1211to1225} 
                         data={wordCount1211to1225}
                         title={wordCountTitle}

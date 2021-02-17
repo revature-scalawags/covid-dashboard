@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 
-export default function BarChart({ data, title }) {
-    console.log(data)
+export default function BarChart({ data, title, label }) {
 
   const  chartContainer = useRef(null),
    [chartInstance, setChartInstance] = useState(null)
@@ -24,8 +23,14 @@ export default function BarChart({ data, title }) {
 
   return (
     <div>
-      <canvas ref={chartContainer} />
+        <div className="card box-shadow m-5">
+            <div className="card-body text-center">
+                <canvas ref={chartContainer} />
+                <p className="card-text">{label}</p>
+            </div>
+        </div>
     </div>
+    
   );
 }
 
