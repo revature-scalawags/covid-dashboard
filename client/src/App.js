@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Main from './pages/Main'
 import About from './pages/About'
+import Twitter from './pages/Twitter'
 import './App.css';
 
 
@@ -12,6 +13,7 @@ export default function App() {
       <Navbar />
       <Route exact path="/"><Main /></Route>
       <Route exact path="/about" ><About /></Route>
+      <Route exact path="/twitter" ><Twitter /></Route>
     </Router>
   );
 }

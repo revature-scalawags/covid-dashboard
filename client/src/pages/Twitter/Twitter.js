@@ -3,7 +3,6 @@ import { Container, Row, Col } from '../../components/Grid'
 import { Loading } from '../../components/Loading/index'
 import PieChart from '../../components/PieChart'
 import BarChart from '../../components/BarChart'
-import LineChart from '../../components/LineChart'
 import API from '../../utils/API'
 
 
@@ -30,7 +29,7 @@ export default function Twitter() {
     [ firstWordCount, setFirstWordCount ] = useState(null),
     [ secondSentiment, setSecondSentiment ] = useState(null),
     [ secondWordCount, setSecondWordCount ] = useState(null),
-    [ thirdSetiment, setThirdSetiment ] = useState(null),
+    [ thirdSentiment, setThirdSetiment ] = useState(null),
     [ thirdWordCount, setThirdWordCount ] = useState(null),
     [ TotalHashtagCount, setTotalHashtagCount ] = useState(null),
     [ firstHashtagCount, setFirstHashtagCount ] = useState(null),
@@ -127,10 +126,10 @@ export default function Twitter() {
         
         arr.reduce((res, value) => {
             if (!res[value.Date]) {
-                res[value.Date] = { Date: value.Date, PositiveSentimentPercentage: 0 };
+                res[value.Date] = { Date: value.Date, Positive_Sentiment_Percentage: 0 };
                 result.push(res[value.Date])
             }
-            res[value.Date].PositiveSentimentPercentage += value.PositiveSentimentPercentage;
+            res[value.Date].Positive_Sentiment_Percentage += value.Positive_Sentiment_Percentage;
             return res;
             }, {});
 
@@ -143,7 +142,7 @@ export default function Twitter() {
                 <Col size={'md-12'}> 
                 <em><h2 style={{textAlign: "center"}}>Twitter Data:</h2></em>
                 <Row> 
-                    <Col size={'md-4'}>
+                    <Col size={'md-6'}>
                         {totalWordCount === null ? <Loading /> : 
                             <PieChart 
                                 label={totalWordLabel} 
@@ -152,7 +151,7 @@ export default function Twitter() {
                             />
                         }
                     </Col>
-                    <Col size={'md-4'}>
+                    <Col size={'md-6'}>
                         {TotalHashtagCount === null ? <Loading /> : 
                             <PieChart 
                                 label={totalHashtagLabel} 
@@ -161,23 +160,34 @@ export default function Twitter() {
                             />
                         }
                     </Col>
-                    <Col size={'md-4'}>
-                        {totalSentiment === null ? <Loading /> : 
-                            <PieChart 
-                                label={totalSentimentLabel} 
-                                data={totalSentiment}
-                                title={sentimentTitle}
-                            />
-                        }
-                    </Col>
                 </Row>
                 <Row>
                     <Col  ol size={'md-8'} classes={'offset-md-2'}>  
+                        {thirdSentiment === null ? <Loading /> : 
+                            <BarChart 
+                                label={thirdSentimentLabel} 
+                                data={thirdSentiment}
+                                title={sentimentTitle}
+                            />
+                        }
+                    </Col> 
+                </Row>
+                <Row>
+                    <Col  ol size={'md-6'}>  
                         {thirdWordCount === null ? <Loading /> : 
                             <BarChart 
                                 label={thirdWordLabel} 
                                 data={thirdWordCount}
                                 title={wordTitle}
+                            />
+                        }
+                    </Col> 
+                    <Col  ol size={'md-6'}>  
+                        {totalSentiment === null ? <Loading /> : 
+                            <PieChart 
+                                label={totalSentimentLabel} 
+                                data={totalSentiment}
+                                title={sentimentTitle}
                             />
                         }
                     </Col> 
@@ -240,17 +250,6 @@ export default function Twitter() {
                             </Col>
                         </Row>
                     </Col>
-                </Row>
-                <Row>
-                    <Col  ol size={'md-8'} classes={'offset-md-2'}>  
-                        {thirdSetiment === null ? <Loading /> : 
-                            <BarChart 
-                                label={thirdSentimentLabel} 
-                                data={thirdSetiment}
-                                title={sentimentTitle}
-                            />
-                        }
-                    </Col> 
                 </Row>
                 <Row>
                     <Col size={'md-12'}>
