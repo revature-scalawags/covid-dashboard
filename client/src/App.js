@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Main from './pages/Main'
 import About from './pages/About'
 import Twitter from './pages/Twitter'
+import Infections from './pages/Infections'
 import './App.css';
 
 
@@ -14,6 +15,7 @@ export default function App() {
       <Route exact path="/"><Main /></Route>
       <Route exact path="/about" ><About /></Route>
       <Route exact path="/twitter" ><Twitter /></Route>
+      <Route exact path="/infections" ><Infections /></Route>
     </Router>
   );
 }
