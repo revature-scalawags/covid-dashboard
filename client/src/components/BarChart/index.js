@@ -110,7 +110,7 @@ const getChartConfig = (data, title) => {
         yAxes: [
           {
             ticks: {
-              beginAtZero: false
+              beginAtZero: true
             }
           }
         ]
