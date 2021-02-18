@@ -11,7 +11,11 @@ export const InfectionLabels = ()=> {
         deltaCaseLabel: "Daily Change (%)",
         totalDeathsLabel: "Total Deaths:  Running Total",
         totalDeathsTitle: "Regional Mortality",
-        dailyDeathsTitle: "Daily Mortality Rate"
+        dailyDeathsTitle: "Daily Mortality Rate",
+        totalRecoveryLabel: "Total Recoveries:  Running Total",
+        dailyRecoveryLabel: "Regional Daily Recoveries Numbers",
+        percentRecovLabel: "Regional Recovery Percentages: Rolling Count",
+        RecoveryTitle: "Covid-19 Recoveries"
     }
     return label
 }

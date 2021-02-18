@@ -10,8 +10,8 @@ const groups = [
     url: '/twitter'
     },
     {
-    title: 'Infection-Mortality Analysis',
-    description: 'Data finding for regional, Covid-19 infection and mortality rates.',
+    title: 'Infection & Mortality Analysis',
+    description: 'Data findings for regional, Covid-19 infection and mortality rates.',
     url: '/infections'
     },
     {

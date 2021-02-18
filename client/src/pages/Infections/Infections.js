@@ -13,41 +13,42 @@ export default function Infections() {
      [ lastDaysCases, setLastDaysCases ] = useState(null),
      [ dailyPercentChange, setDailyPercentChange ] = useState(null),
      [ totalDeaths, setTotalDeaths ] = useState(null),
-     [ dailyDeaths, setDailyDeaths ] = useState(null)
+     [ dailyDeaths, setDailyDeaths ] = useState(null),
+     [ totalRecoveries, setTotalRecoveries ] = useState(null),
+     [ dailyRecoveries, setDailyRecoveries ] = useState(null),
+     [ percentRecovery, setPercentRecovery ] = useState(null)
      
 
     useEffect(() => {
-        getTotalCases()
-        getLastDaysCases()
-        getDeltaCases()
-        getTotalDeaths()
-        getDailyDeaths()
+       getCases()
     }, [])
 
 
-    const getTotalCases = async() => {
-        const response = await API.fetchTotalCases('TotalCases')
-        setTotalCases(response)
-    },
+    const getCases = async() => {
 
-    getLastDaysCases = async() => {
-        const response = await API.fetchTotalCases('TodaysCases')
-        setLastDaysCases(response)
-    },
+    const tCases = await API.fetchCases('TotalCases')
+    setTotalCases(tCases)
 
-    getDeltaCases = async() => {
-        const response = await API.fetchTotalCases('TodaysCases')
-        setDailyPercentChange(response)
-    },
+    const dayCases = await API.fetchCases('TodaysCases')
+    setLastDaysCases(dayCases)
 
-    getTotalDeaths = async() => {
-        const response = await API.fetchTotalCases('TotalDeaths')
-        setTotalDeaths(response)
-    },
+    const percentCases = await API.fetchCases('CasesPercentChange')
+    setDailyPercentChange(percentCases)
 
-    getDailyDeaths = async() => {
-        const response = await API.fetchTotalCases('TodaysDeaths')
-        setDailyDeaths(response)
+    const tDeaths = await API.fetchCases('TotalDeaths')
+    setTotalDeaths(tDeaths)
+
+    const daysDeaths = await API.fetchCases('TodaysDeaths')
+    setDailyDeaths(daysDeaths)
+
+    const tRecoveries = await API.fetchCases('TotalRecoveries')
+    setTotalRecoveries(tRecoveries)
+
+    const dayRecoveries = await API.fetchCases('TodaysRecoveries')
+    setDailyRecoveries(dayRecoveries)
+
+    const pRecoveries = await API.fetchCases('RecoveriesPercentChange')
+    setPercentRecovery(pRecoveries)
     }
 
     const label = InfectionLabels()
@@ -78,7 +79,7 @@ export default function Infections() {
                     </Col>
                 </Row>
                 <Row>
-                    <Col  ol size={'md-8'} classes={'offset-md-2'}>  
+                    <Col size={'md-8'} classes={'offset-md-2'}>  
                         {dailyPercentChange === null ? <Loading /> : 
                             <PieChart 
                                 label={label.deltaCaseLabel} 
@@ -110,6 +111,40 @@ export default function Infections() {
                     </Col>
                 </Row>
                 </Col>
+                <Row> 
+                    <Col size='md-12'>
+                        <Row>
+                        <Col size={'md-6'}>
+                            {totalRecoveries === null ? <Loading /> : 
+                                <BarChart 
+                                    label={label.totalRecoveryLabel} 
+                                    data={totalRecoveries.filter(x => x.Region !== 'Total')}
+                                    title={label.RecoveryTitle}
+                                />
+                            }
+                        </Col>
+                        <Col size={'md-6'}>
+                            {dailyRecoveries === null ? <Loading /> : 
+                                <BarChart 
+                                    label={label.dailyRecoveryLabel} 
+                                    data={dailyRecoveries.filter(x => x.Region !== 'Total')}
+                                    title={label.RecoveryTitle}
+                                />
+                            }
+                        </Col>
+                        </Row>
+                    </Col>
+                        <Col size={'md-8'} classes={'offset-md-2'}>
+                            {percentRecovery === null ? <Loading /> : 
+                                <BarChart 
+                                    label={label.percentRecovLabel} 
+                                    data={percentRecovery.filter(x => x.Region !== 'Total')}
+                                    title={label.RecoveryTitle}
+                                />
+                            }
+                        </Col>
+                    
+                </Row>
             </Row>
         </Container>
     )

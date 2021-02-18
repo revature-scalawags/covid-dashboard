@@ -13,6 +13,6 @@ export default {
     fetchTweetSentiment: dateRange => d3.csv(`https://covid-analysis-p3-dashboard.s3.amazonaws.com/data/twitter-general/SentimentResultsFinal-${dateRange}.csv`,
     data => data),
 
-    fetchTotalCases: src => d3.csv(`https://covid-analysis-p3-dashboard.s3.amazonaws.com/data/infection-mortality/${src}.csv`,
+    fetchCases: src => d3.csv(`https://covid-analysis-p3-dashboard.s3.amazonaws.com/data/infection-mortality/${src}.csv`,
     data => data)
 }
