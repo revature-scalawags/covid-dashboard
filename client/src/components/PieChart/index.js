@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, Fragment } from 'react';
 import Chartjs from 'chart.js';
 
-export default function BarChart({ data, title, label }) {
+export default function BarChart({ data, title, label, hasLegend }) {
 
   const  chartContainer = useRef(null),
    [chartInstance, setChartInstance] = useState(null)
@@ -9,7 +9,7 @@ export default function BarChart({ data, title, label }) {
    //Initialize chart
    useEffect(() => {
     if (chartContainer && chartContainer.current) {
-      const newChartInstance = new Chartjs(chartContainer.current, getChartConfig(data, title))
+      const newChartInstance = new Chartjs(chartContainer.current, getChartConfig(data, title, hasLegend))
       setChartInstance(newChartInstance)
     }
   }, [chartContainer])
@@ -19,7 +19,9 @@ export default function BarChart({ data, title, label }) {
     <div>
         <div className="card box-shadow m-5">
 			<div className="card-body text-center">
-			<canvas ref={chartContainer} />
+      <Fragment>
+        <canvas ref={chartContainer} />
+      </Fragment>
 				<p className="card-text">{label}</p>
 			</div>
 		</div>
@@ -27,10 +29,11 @@ export default function BarChart({ data, title, label }) {
   )
 }
 
-const getChartConfig = (data, title) => {
+const getChartConfig = (data, title, hasLegend = false) => {
    return ( {
     type: "pie",
     data: {
+      toolTipContent: `<b>{label}:</b> {y} (#percent%)`,
       labels: data.map(elem => Object.values(elem)[0]),
       datasets: [
         {
@@ -120,7 +123,7 @@ const getChartConfig = (data, title) => {
           easing: 'easeOutSine'
         },
         legend: {
-            display: false
+            display: hasLegend
          }
     }
   })
