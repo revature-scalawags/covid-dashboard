@@ -164,7 +164,7 @@ export default function Twitter() {
                     </Col>
                 </Row>
                 <Row>
-                    <Col  ol size={'md-8'} classes={'offset-md-2'}>  
+                    <Col size={'md-8'} classes={'offset-md-2'}>  
                         {thirdSentiment === null ? <Loading /> : 
                             <BarChart 
                                 label={label.thirdSentimentLabel} 

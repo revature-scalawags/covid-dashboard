@@ -5,6 +5,7 @@ import Main from './pages/Main'
 import About from './pages/About'
 import Twitter from './pages/Twitter'
 import Infections from './pages/Infections'
+import Economics from './pages/Economics'
 import './App.css';
 
 
@@ -16,6 +17,7 @@ export default function App() {
       <Route exact path="/about" ><About /></Route>
       <Route exact path="/twitter" ><Twitter /></Route>
       <Route exact path="/infections" ><Infections /></Route>
+      <Route exact path="/economics" ><Economics /></Route>
     </Router>
   );
 }

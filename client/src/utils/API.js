@@ -14,5 +14,8 @@ export default {
     data => data),
 
     fetchCases: src => d3.csv(`https://covid-analysis-p3-dashboard.s3.amazonaws.com/data/infection-mortality/${src}.csv`,
+    data => data),
+
+    fetchEconStats: src => d3.csv(`https://covid-analysis-p3-dashboard.s3.amazonaws.com/data/infection-gdp/${src}.csv`,
     data => data)
 }
