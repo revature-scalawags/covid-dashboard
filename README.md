@@ -42,13 +42,13 @@ ___
 ## Links:
 [Deployed Website](https://covid-data-dashbrd.herokuapp.com/)
 
-[Github Repo](https://github.com/drthisguy/covid-dashboard)           
+[Github Repo](https://github.com/891-MehrabRahman-CovidAnalysis/covid-dashboard)           
 [Main Project Repo](https://github.com/891-MehrabRahman-CovidAnalysis/covid-analysis-1)         
 
 ___
 
 ## Screens:
-
+![Screen Shot 2021-02-19 at 1 31 22 PM](https://user-images.githubusercontent.com/48693333/108547052-fb8f8280-72b7-11eb-963c-3e421a07caa8.png)
 ___
 
 ## Sources

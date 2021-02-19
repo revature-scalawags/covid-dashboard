@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from '../../components/Grid'
 import { Loading } from '../../components/Loading/index'
-import PieChart from '../../components/PieChart'
 import DoubleAxesChart from '../../components/DoubleAxesChart'
 import BarChart from '../../components/BarChart'
 import LineChart from '../../components/LineChart'
@@ -53,12 +52,23 @@ export default function Economics() {
             <Col size={'md-12'}> 
                 <em><h2 style={{textAlign: "center"}}>Economic Response to Covid-19</h2></em>
                 <Row> 
-                        <Col size={'md-8'} classes={'offset-md-2'}>
-                            {gdpChange === null ? <Loading /> : 
-                                <BarChart 
-                                    label={label.deltaGDPLabel} 
-                                    data={gdpChange}
-                                    title={label.deltaGDPTitle}
+                    <Col size={'md-8'} classes={'offset-md-2'}>
+                        {gdpChange === null ? <Loading /> : 
+                            <BarChart 
+                                label={label.deltaGDPLabel} 
+                                data={gdpChange}
+                                title={label.deltaGDPTitle}
+                            />
+                        }
+                    </Col>
+                </Row>
+                <Row> 
+                        <Col size={'md-12'} >
+                            {sharedBorders === null ? <Loading /> : 
+                                <DoubleAxesChart 
+                                    label={label.borderCntyLabel} 
+                                    data={sharedBorders.slice(0, 15)}
+                                    title={label.borderCntyTitle}
                                 />
                             }
                         </Col>
@@ -83,17 +93,7 @@ export default function Economics() {
                         }
                     </Col>
                 </Row>
-                    <Row> 
-                        <Col size={'md-12'} >
-                            {sharedBorders === null ? <Loading /> : 
-                                <DoubleAxesChart 
-                                    label={label.borderCntyLabel} 
-                                    data={sharedBorders.slice(0, 15)}
-                                    title={label.borderCntyTitle}
-                                />
-                            }
-                        </Col>
-                    </Row>
+                    
                 </Col>
             </Row>
         </Container>
