@@ -35,7 +35,7 @@ export const TwitterLabels = ()=> {
         thirdWordLabel: "Word Count:  2/03/21 - 2/14/21",
         thirdHashtagLabel: "Hashtag Count:  2/03/21 - 2/14/21",
         firstHashLabel: "Hashtag Count:  12/11/20 - 12/25/20",
-        totalEmojiLabel: "Emoji Count:  Running Total",
+        totalEmojiLabel: "Emoji Count:  Running Total"
     }
 }
 
