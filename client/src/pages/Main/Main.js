@@ -6,7 +6,7 @@ import { LinkList } from '../../components/LinkList';
 const groups = [
     {
     title: 'Twitter Analysis',
-    description: "Covid-19 related Twitter findings",
+    description: "General Twitter findings",
     url: '/twitter'
     },
     {

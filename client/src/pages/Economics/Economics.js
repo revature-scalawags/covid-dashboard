@@ -11,7 +11,7 @@ import API from '../../utils/API'
 export default function Economics() {
     const [gdpChange, setGdpChange] = useState(null)
     const [highIslandRates, setHighIslandRates] = useState(null)
-    const [highlandRates, setHighLandRates] = useState(null)
+    const [highLandRates, setHighLandRates] = useState(null)
     const [sharedBorders, setSharedBorders] = useState(null)
 
     useEffect(() => {
@@ -62,11 +62,11 @@ export default function Economics() {
                         }
                     </Col>
                     <Col size={'md-6'}>
-                        {highlandRates === null ? <Loading /> : 
+                        {highLandRates === null ? <Loading /> : 
                             <LineChart 
-                                label={label.highlandRatesLabel} 
-                                data={highlandRates}
-                                title={label.highlandRatesTitle}
+                                label={label.highLandRatesLabel} 
+                                data={highLandRates}
+                                title={label.highLandRatesTitle}
                             />
                         }
                     </Col>
@@ -76,7 +76,7 @@ export default function Economics() {
                             {sharedBorders === null ? <Loading /> : 
                                 <PieChart 
                                     label={label.borderCntyLabel} 
-                                    data={highIslandRates}
+                                    data={sharedBorders}
                                     title={label.borderCntyTitle}
                                 />
                             }
