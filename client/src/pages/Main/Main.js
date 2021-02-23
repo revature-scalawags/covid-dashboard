@@ -1,27 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from '../../components/Grid';
-import DataList from '../../components/DataList'; 
+import { LinkList } from '../../components/LinkList';
 
+// props for the landing page links
+const groups = [
+    {
+    title: 'Twitter Analysis',
+    description: "General Twitter findings",
+    url: '/twitter'
+    },
+    {
+    title: 'Infection & Mortality Analysis',
+    description: 'Data findings for regional, Covid-19 infection and mortality rates.',
+    url: '/infections'
+    },
+    {
+    title: 'Economic Responses',
+    description: 'Analytics for the regional, economic effects from Covid-19',
+    url: '/economics'
+    }
+]
 
 export default function Main() {
 
-    const [ infectionRates, setInfectionRates ] = useState('Infection Rates by Region since 01/01/2020'),
-    [ tweetsTrending, setTweetsTrending ] = useState('Rolling count of Most Used Twitter Hashtags'),
-    [ toneGauge, setToneGauge ] = useState('Gauge depicting tone of tweets since 12/11/2020')
+    const [ researchers ] = useState(groups)
 
     return (
         <Container>
             <Row>
                 <Col size={'md-8'} classes={'offset-md-2'}>  
-                    <DataList 
-                        header={infectionRates} 
-                    />
-                    <DataList 
-                        header={tweetsTrending} 
-                    />
-                    <DataList 
-                        header={toneGauge} 
-                    />
+                    {researchers.map( group => 
+
+                            <LinkList 
+                                link={group} 
+                            />
+                        )}
                 </Col>
            </Row>
         </Container>
