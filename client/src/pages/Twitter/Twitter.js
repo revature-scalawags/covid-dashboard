@@ -42,7 +42,7 @@ export default function Twitter() {
         setThirdWordCount(thirdBatch)
         
         const fullSortedBatch = [firstBatch, ...secondBatch, ...thirdBatch].sort((a, b) => b.Count - a.Count),
-            fullyGroupedAndSummed = groupWrdsByAndSum(fullSortedBatch)
+            fullyGroupedAndSummed = grpByWrdsAndSum(fullSortedBatch)
 
         setTotalWordCount(fullyGroupedAndSummed)
     },
@@ -58,7 +58,7 @@ export default function Twitter() {
         setThirdHashtagCount(thirdBatch)
         
         const fullSortedBatch = [firstBatch, ...secondBatch, ...thirdBatch].sort((a, b) => b.Count - a.Count),
-            fullyGroupedAndSummed = groupHashtagsByAndSum(fullSortedBatch)
+            fullyGroupedAndSummed = grpByHashtagsAndSum(fullSortedBatch)
 
         setTotalHashtagCount(fullyGroupedAndSummed)
     }, 
@@ -71,7 +71,7 @@ export default function Twitter() {
         const thirdBatch = await API.fetchEmojiNumbers('Feb_03-Feb_14')
         
         const fullSortedBatch = [firstBatch, ...secondBatch, ...thirdBatch].sort((a, b) => b.Count - a.Count),
-            fullyGroupedAndSummed = groupByEmojisAndSum(fullSortedBatch)   
+            fullyGroupedAndSummed = grpByEmojisAndSum(fullSortedBatch)   
 
         setTotalEmojiData(fullyGroupedAndSummed)
     }, 
@@ -89,7 +89,7 @@ export default function Twitter() {
         setTotalSentiment(firstBatch, ...secondBatch, ...thirdBatch)
     }, 
 
-    groupWrdsByAndSum = arr => {
+    grpByWrdsAndSum = arr => {
         const result = []
 
         arr.reduce((res, value) => {
@@ -105,7 +105,7 @@ export default function Twitter() {
         return result
     },
 
-    groupHashtagsByAndSum = arr => {
+    grpByHashtagsAndSum = arr => {
         const result = []
 
         arr.reduce((res, value) => {
@@ -120,7 +120,7 @@ export default function Twitter() {
         return result
     },
 
-    groupByEmojisAndSum = arr => {
+    grpByEmojisAndSum = arr => {
         const result = []
 
         arr.reduce((res, value) => {

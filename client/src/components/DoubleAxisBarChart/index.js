@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 
-export default function DoubleAxesChart({ data, title, label }) {
+export default function DoubleAxisBarChart({ data, label }) {
 
   const  chartContainer = useRef(null),
    [chartInstance, setChartInstance] = useState(null)
@@ -9,7 +9,7 @@ export default function DoubleAxesChart({ data, title, label }) {
    //Initialize chart
    useEffect(() => {
     if (chartContainer && chartContainer.current) {
-      const newChartInstance = new Chartjs(chartContainer.current, getChartConfig(data, title))
+      const newChartInstance = new Chartjs(chartContainer.current, getChartConfig(data))
       setChartInstance(newChartInstance)
     }
   }, [chartContainer])
@@ -28,7 +28,7 @@ export default function DoubleAxesChart({ data, title, label }) {
   );
 }
 
-const getChartConfig = (data, title) => {
+const getChartConfig = (data) => {
    return ( {
     type: "bar",
     data: {

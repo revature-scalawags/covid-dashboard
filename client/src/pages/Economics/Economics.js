@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Row, Col } from '../../components/Grid'
-import { Loading } from '../../components/Loading/index'
-import DoubleAxesChart from '../../components/DoubleAxesChart'
+import { Loading } from '../../components/Loading' 
+import DoubleAxisBarChart from '../../components/DoubleAxisBarChart'
 import BarChart from '../../components/BarChart'
 import LineChart from '../../components/LineChart'
 import { EconLabels } from '../../utils/Labels'
@@ -30,18 +30,10 @@ export default function Economics() {
         setHighLandRates(highlands)
 
         const sharedBorders = await API.fetchEconStats("shared_border_discrepency"),
-            withLabeling = configureChartLabels(sharedBorders)
-            console.log(withLabeling)
-        setSharedBorders(withLabeling)
-    },
+            //Configure labeling for double axes chart.
+            withLabeling = sharedBorders.map(obj => new Object({...obj, labels: `${obj.country_name}/${obj.border_country}`}))
 
-    //Configure labeling for double axes chart.
-    configureChartLabels = arr => {
-    return arr.reduce((acc, cur) => {
-        const obj = {...cur, labels: `${cur.country_name}/${cur.border_country}`}
-                acc.push(obj)
-            return acc
-        }, [])
+        setSharedBorders(withLabeling)
     }
 
     const label = EconLabels()
@@ -65,7 +57,7 @@ export default function Economics() {
                 <Row> 
                         <Col size={'md-12'} >
                             {sharedBorders === null ? <Loading /> : 
-                                <DoubleAxesChart 
+                                <DoubleAxisBarChart 
                                     label={label.borderCntyLabel} 
                                     data={sharedBorders.slice(0, 15)}
                                     title={label.borderCntyTitle}
